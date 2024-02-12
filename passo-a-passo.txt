@@ -1,0 +1,52 @@
+========================================================
+        Criando um Clone do BuzzFeed com Angular
+========================================================
+
+--------------------------------------------------------
+                      ESTRUTURA BASE
+--------------------------------------------------------
+
+- Criar um novo projeto;
+- Criar pasta components e os arquivos de quizz components;
+- Criar a pasta pages e home com os arquivos home;
+- Configurar o reset do css principal style.css;
+- Configurar o arquivo tsconfig.jason adicionando:
+
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+
+- Remover o conteúdo contido no arquivo app.component.html
+deixando apenas a tag <router-outlet></router-outlet> que
+fica no final do arquivo;
+- Copiar o selector do arquivo home.component.ts e colar no
+arquivo app.component.html: <app-home></app-home>;
+- No arquivo home.component.html criar uma div e adicionar
+dentro a tag do app-quiz:
+
+<div class="home__container">
+    <app-quizz></app-quizz>
+</div>
+
+- Criar a pasta data e a pasta img dentro da pasta assets;
+- Criar o aqruivo quizz_question.json na pasta data e
+adicionar a logo BuzzFeed na pasta img;
+
+--------------------------------------------------------
+                  ESTILIZAÇÃO DO PROJETO
+--------------------------------------------------------
+- Criar o esqueleto da página no arquivo quizz.component.html;
+-
+
+========================================================
+        Criação do arquivo quizz_questions.json
+========================================================
+- Criado em duas etapas a primeira um Array e a segunda objeto;
+- Título, questions e results;
+- Dentro da área de questions estão todas as perguntas que
+serão feitas quando o projto for executado;
+- Cada question possui: id, question, options e cada options
+possui um id, name e alias;
+- No caso do arquivo deste projeto foram feitos 5 questions;
+- Dentro da área results existem os objetos "A" e "B", que
+serão as respostas para o resultado do somatório das respotas
+obtidas nas perguntas;
