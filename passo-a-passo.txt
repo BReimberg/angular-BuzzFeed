@@ -35,6 +35,51 @@ adicionar a logo BuzzFeed na pasta img;
                   ESTILIZAÇÃO DO PROJETO
 --------------------------------------------------------
 - Criar o esqueleto da página no arquivo quizz.component.html;
+- Estilizar a página no arquivo quizz.component.css
+
+--------------------------------------------------------
+                   PROPRIEDADES LÓGICAS
+--------------------------------------------------------
+- No arquivo quizz.component.ts criar a propriedade title:
+
+title:string = ""
+
+- Copiar o nome da propriedade title e colar na interpolação
+dentro do arquivo quizz.component.html:
+
+<h3>{{ title }}</h3>
+
+- No arquivo quizz.component.ts criar as propriedades quizz_questions
+e questionSelected:
+
+  questions:any = ""
+  questionSelected:any = ""
+
+- Copiar o nome da propriedade questionSelected e colar na
+interpolação dentro do aquivo quizz.component.html seguido
+de .question:
+
+ <div class="quizz_questions">
+    <h3>{{ questionSelected.question }}</h3>
+  </div>
+
+- Criar as propriedades answers e answerSelected no arquivo
+quizz.component.ts:
+
+  answers:string[] = []
+  answerSelected:string = ""
+
+- Criar as propriedades questionIndex e questionMaxIndex = 0:
+
+  questionIndex: number = 0
+  questionMaxIndex = 0
+
+- Criar a propriedade finished no arquivo quiz.component.ts:
+
+  finished:boolean = false
+
+*obs: finished fica como false por padrão;
+
 -
 
 ========================================================
