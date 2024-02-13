@@ -186,3 +186,6 @@ possui um id, name e alias;
 - Dentro da área results existem os objetos "A" e "B", que
 serão as respostas para o resultado do somatório das respotas
 obtidas nas perguntas;
+
+*OBS: O projeto pode ser utilizado para vários nichos de perguntas,
+basta alterar as perguntas e respostas no arquivo quizz_options.json;

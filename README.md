@@ -10,4 +10,12 @@
 - Calcular o resultado
 
 ## RESULTADO
-<img src="">
+<img src="./src/assets/img/finalizado.png">  
+
+#
+
+<img src="./src/assets/img/finalizado-3.png">
+
+#
+
+<img src="./src/assets/img/finalizado-2.png">
