@@ -80,7 +80,98 @@ quizz.component.ts:
 
 *obs: finished fica como false por padrão;
 
--
+--------------------------------------------------------
+                      REGRAS DO jOGO
+--------------------------------------------------------
+- Importar o arquivo quizz_questions.json para o arquivo
+quizz.component.ts;
+- No arquivo quizz.component.ts adicionar as regras
+criando métodos na área ngOnInit:
+
+ngOnInit(): void {
+    if(quizz_questions) {
+      this.finished = false
+      this.title = quizz_questions.title
+
+      this.questions = quizz_questions.questions
+      this.questionSelected = this.questions[this.questionIndex]
+
+      this.questionIndex = 0
+      this.questionMaxIndex = this.questions.length
+    }
+
+    playerChosse(value:string) {
+    this.answers.push(value)
+    this.nexStep()
+  }
+
+ async nexStep() {
+    this.questionIndex+=1
+
+    if(this.questionIndex > this.questionIndex){
+      this.questionSelected = this.questions[this.questionIndex]
+    }else{
+      this.finished = true
+      this.answerSelected = quizz_questions.results[finalAnswer as keyof
+      typeof quizz_questions.results]
+    }
+  }
+
+   async checkResult(answers:string[]) {
+    const result = answers.reduce((previous, current, i, arr)=> {
+      if(
+        arr.filter(item => item === previous).length >
+        arr.filter(item => item === current).length
+        ){
+          return previous
+        }else{
+          return current
+        }
+    })
+    return result
+}
+
+- No arquivo quizz.component.html mudar os elementos estáticos
+por dinâmicos utilizando a interpolação:
+
+ <div *ngIf=finished class="quizz_results">
+    <h1>O seu resultado é: </h1>
+    <p>{{ answerSelected }}</p>
+  </div>
+
+--------------------------------------------------------
+                  CALCULANDO O RESULTADO
+--------------------------------------------------------
+- No arquivo quizz.component.htm adicionar *ngIf="!finished":
+
+<div *ngIf="!finished" class="quizz_questions">
+    <h3>{{ questionSelected.question }}</h3>
+  </div>
+
+  <div *ngIf="!finished" class="quizz_options">
+    <button *ngFor="let option of questionSelected.options; let i = index"
+    (click)="playerChosse(option.alias)"
+    class="btn-option">
+      {{ option.name }}
+    </button>
+  </div>
+
+- No arquivo quizz.component.ts criar o metodo:
+
+async checkResult(answers:string[]) {
+    const result = answers.reduce((previous, current, i, arr)=> {
+      if(
+        arr.filter(item => item === previous).length >
+        arr.filter(item => item === current).length
+        ){
+          return previous
+        }else{
+          return current
+        }
+    })
+    return result
+  }
+
 
 ========================================================
         Criação do arquivo quizz_questions.json
